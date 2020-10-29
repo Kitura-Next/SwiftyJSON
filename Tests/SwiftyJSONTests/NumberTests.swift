@@ -54,7 +54,7 @@ class NumberTests: XCTestCase {
         XCTAssertEqual(json.number!, 9876543210.123456789)
         XCTAssertEqual(json.numberValue, 9876543210.123456789)
         // Number of fraction digits differs on OSX and Linux,
-        // issue https://github.com/IBM-Swift/SwiftRuntime/issues/183
+        // issue https://github.com/Kitura-Next/SwiftRuntime/issues/183
         #if (os(Linux) && !swift(>=4.2))
             XCTAssertEqual(json.stringValue, "9876543210.12346")
         #else
@@ -134,7 +134,7 @@ class NumberTests: XCTestCase {
         XCTAssertEqual(json.doubleValue, 9876543210.123456789)
         XCTAssertEqual(json.numberValue, 9876543210.123456789)
         // Number of fraction digits differs on OSX and Linux,
-        // issue https://github.com/IBM-Swift/SwiftRuntime/issues/183
+        // issue https://github.com/Kitura-Next/SwiftRuntime/issues/183
         #if (os(Linux) && !swift(>=4.2))
             XCTAssertEqual(json.stringValue, "9876543210.12346")
         #else
@@ -315,7 +315,7 @@ class NumberTests: XCTestCase {
         XCTAssertTrue(json.uInt8Value == nm0.uint8Value)
 
         #if !os(Linux)
-            // Because of https://github.com/IBM-Swift/SwiftRuntime/issues/185
+            // Because of https://github.com/Kitura-Next/SwiftRuntime/issues/185
             // the type is Bool instead of Number
             XCTAssertTrue(json.number! == nm0)
             XCTAssertEqual(json.stringValue, "0")
@@ -327,7 +327,7 @@ class NumberTests: XCTestCase {
         XCTAssertTrue(json.uInt8! == nm1.uint8Value)
         XCTAssertTrue(json.uInt8Value == nm1.uint8Value)
         #if !os(Linux)
-            // Because of https://github.com/IBM-Swift/SwiftRuntime/issues/185
+            // Because of https://github.com/Kitura-Next/SwiftRuntime/issues/185
             // the type is Bool instead of Number
             XCTAssertTrue(json.number! == nm1)
             XCTAssertEqual(json.stringValue, "1")
@@ -477,7 +477,7 @@ class NumberTests: XCTestCase {
 #if !os(Linux)
         // Fails on Linux from Swift 4.0.3 after SCLF was fixed to correctly Stringify UInt values
         // greater than Int64.max - see https://github.com/apple/swift-corelibs-foundation/pull/1196
-        // We have decided not to fix this in SwiftyJSON for now (see IBM-Swift/SwiftyJSON#40)
+        // We have decided not to fix this in SwiftyJSON for now (see Kitura-Next/SwiftyJSON#40)
         XCTAssertEqual(json.stringValue, uInt64Max.stringValue)
 #endif
 

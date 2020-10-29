@@ -42,7 +42,7 @@ class PrintableTests: XCTestCase {
     func testNumber() {
         let json:JSON = 1234567890.876623
         // Number of fraction digits differs on OSX and Linux,
-        // issue https://github.com/IBM-Swift/SwiftRuntime/issues/183
+        // issue https://github.com/Kitura-Next/SwiftRuntime/issues/183
         #if (os(Linux) && !swift(>=4.2))
             XCTAssertEqual(json.description, "1234567890.87662")
             XCTAssertEqual(json.debugDescription, "1234567890.87662")
